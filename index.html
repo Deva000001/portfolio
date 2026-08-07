@@ -23,7 +23,7 @@
 <div id="progress"></div>
 <div id="cursor-glow"></div>
 <!-- AI COMPANION -->
-<div aria-hidden="true" class="ai-companion" id="aiCompanion">
+<div class="orbit" id="orbit">
 <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="acBody" x1="0" x2="1" y1="0" y2="1">
@@ -47,6 +47,15 @@
 <rect fill="url(#acBody)" height="16" rx="5" width="12" x="30" y="70"></rect>
 <rect fill="url(#acBody)" height="16" rx="5" width="12" x="58" y="70"></rect>
 </svg>
+</div>
+<div id="orbitBubble" class="orbit-bubble">
+
+    <div class="orbit-bubble-text">
+
+        👋 Hi! I'm Orbit.
+
+    </div>
+
 </div>
 <nav id="nav">
 <div class="container">
@@ -535,6 +544,77 @@
 <p class="quote">"Learn relentlessly. Build fearlessly. Create meaningfully."</p>
 <p class="fine">© <span id="year"></span> Dev — built with intent, updated as it happens.</p>
 </div>
+<!-- ===========================
+Orbit AI Companion
+=========================== -->
+
+<div id="orbitChat" class="orbit-chat">
+
+    <div class="orbit-header">
+
+        <div class="orbit-title">
+
+            🤖 Orbit
+
+            <span>Digital AI Companion</span>
+
+        </div>
+
+        <button id="orbitClose">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div id="orbitMessages" class="orbit-messages">
+
+        <div class="orbit-message orbit-message-ai">
+
+            Hey 👋
+
+            <br><br>
+
+            I'm Orbit.
+
+            <br>
+
+            I know everything about Dev's portfolio.
+
+        </div>
+
+    </div>
+
+    <div class="orbit-quick-actions">
+
+        <button data-action="tour">🚀 Portfolio Tour</button>
+
+        <button data-action="projects">💼 Projects</button>
+
+        <button data-action="skills">🧠 Skills</button>
+
+        <button data-action="italy">🇮🇹 Italy</button>
+
+    </div>
+
+    <div class="orbit-input">
+
+        <input
+            id="orbitInput"
+            type="text"
+            placeholder="Ask Orbit anything..."
+        >
+
+        <button id="orbitSend">
+
+            ➜
+
+        </button>
+
+    </div>
+
+</div>
 </footer>
 <!-- CONTACT MODAL — "Available Soon" popup, opened by main.js on form submit -->
 <div aria-hidden="true" class="modal-overlay" id="contactModal">
@@ -559,6 +639,7 @@
 <script src="assets/js/constellation.js" defer></script>
 <!-- Existing Scripts -->
 <script defer="" src="assets/js/main.js"></script>
+<script src="assets/js/orbit.js"></script>
 <script defer="" src="assets/js/animations.js"></script>
 <script defer="" src="assets/js/snake-game.js"></script>
 <script defer="" src="assets/js/dragon-companion.js"></script>

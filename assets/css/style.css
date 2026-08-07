@@ -483,3 +483,410 @@
 
     display: block;
 }
+
+/* ==========================================================
+   ORBIT AI COMPANION
+========================================================== */
+
+.orbit{
+
+    position:fixed;
+
+    left:20px;
+
+    bottom:18px;
+
+    width:58px;
+
+    height:58px;
+
+    z-index:999;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+
+}
+
+.orbit:hover{
+
+    transform:scale(1.12);
+
+    filter:drop-shadow(0 0 20px rgba(91,139,255,.6));
+
+}
+
+.orbit svg{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.orbit .ac-pupil{
+
+    transition:transform .25s ease;
+
+}
+
+.orbit .ac-wave{
+
+    transform-origin:80% 70%;
+
+    opacity:0;
+
+}
+
+.orbit.waving .ac-wave{
+
+    animation:orbitWave .9s ease;
+
+}
+
+@keyframes orbitWave{
+
+0%,100%{
+
+opacity:0;
+
+transform:rotate(0deg);
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+40%{
+
+transform:rotate(-20deg);
+
+}
+
+60%{
+
+transform:rotate(8deg);
+
+}
+
+80%{
+
+transform:rotate(-15deg);
+
+}
+
+}
+
+.orbit.blink .ac-eyeL,
+
+.orbit.blink .ac-eyeR{
+
+transform:scaleY(.15);
+
+}
+
+.ac-eyeL,
+
+.ac-eyeR{
+
+transform-origin:center;
+
+}
+
+/* ==========================================================
+   ORBIT SPEECH BUBBLE
+========================================================== */
+
+.orbit-bubble{
+
+    position:fixed;
+
+    left:90px;
+
+    bottom:42px;
+
+    max-width:260px;
+
+    padding:14px 18px;
+
+    border-radius:18px;
+
+    background:rgba(20,22,28,.85);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+    pointer-events:none;
+
+    transition:.35s;
+
+    z-index:999;
+
+}
+
+.orbit-bubble.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.orbit-bubble::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-8px;
+
+    bottom:18px;
+
+    width:16px;
+
+    height:16px;
+
+    background:inherit;
+
+    transform:rotate(45deg);
+
+    border-left:1px solid rgba(255,255,255,.08);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================================================
+   ORBIT CHAT WINDOW
+========================================================== */
+
+.orbit-chat{
+
+    position:fixed;
+
+    left:25px;
+
+    bottom:95px;
+
+    width:370px;
+
+    height:520px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:rgba(18,20,28,.92);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:.4s;
+
+    z-index:1000;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+
+.orbit-chat.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:none;
+
+}
+
+.orbit-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.orbit-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+
+    font-weight:600;
+
+}
+
+.orbit-title span{
+
+    font-size:12px;
+
+    color:#8d8d97;
+
+}
+
+#orbitClose{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+}
+
+.orbit-messages{
+
+    flex:1;
+
+    overflow:auto;
+
+    padding:18px;
+
+}
+
+.orbit-message{
+
+    padding:14px 16px;
+
+    border-radius:18px;
+
+    margin-bottom:14px;
+
+    max-width:85%;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+.orbit-message-ai{
+
+    background:rgba(91,139,255,.15);
+
+}
+
+.orbit-input{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:18px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+}
+
+.orbit-input input{
+
+    flex:1;
+
+    background:rgba(255,255,255,.04);
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:12px 16px;
+
+    color:white;
+
+}
+
+.orbit-input button{
+
+    width:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2f6fff,#8b5cf6);
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.orbit-quick-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    padding:16px;
+
+}
+
+.orbit-quick-actions button{
+
+    border:none;
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.orbit-quick-actions button:hover{
+
+    background:#2f6fff;
+
+}

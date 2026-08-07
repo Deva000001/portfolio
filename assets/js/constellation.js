@@ -11,7 +11,7 @@
 
     const ctx = canvas.getContext("2d");
 
-    const NODE_COUNT = 60;
+    const NODE_COUNT = 20;
 
     const nodes = [];
 
