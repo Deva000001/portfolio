@@ -17,11 +17,101 @@
 </head>
 <body>
 
-  
+  <!-- ==========================================
+     CINEMATIC INTRO LOADER
+========================================== -->
+
+<div id="introLoader">
+
+    <div class="loader-content">
+
+        <div class="loader-logo">
+            dev<span>.</span>
+        </div>
+
+        <div class="loader-status" id="loaderStatus">
+            Initializing...
+        </div>
+
+        <div class="loader-progress">
+
+            <div class="loader-progress-bar" id="loaderBar"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 <canvas id="globalSequenceCanvas"></canvas>
 
 <div id="progress"></div>
 <div id="cursor-glow"></div>
+<!-- ==========================================
+     WORLD STATUS
+========================================== -->
+
+<div class="world-status">
+    <button class="world-close" id="worldClose" aria-label="Close">
+    ×
+</button>
+
+    <div class="world-title">
+        🌍 Journey
+    </div>
+
+    <div class="world-card">
+
+        <div class="country">
+
+            <div class="flag">🇮🇳</div>
+
+            <div class="info">
+
+                <div class="label">
+                    HOME
+                </div>
+
+                <div class="place">
+                    India
+                </div>
+
+                <div class="time" id="indiaTime">
+                    --:--
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="country">
+
+            <div class="flag">🇮🇹</div>
+
+            <div class="info">
+
+                <div class="label">
+                    SECOND HOME
+                </div>
+
+                <div class="place">
+                    Italy
+                </div>
+
+                <div class="time" id="italyTime">
+                    --:--
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 <!-- AI COMPANION -->
 <div class="orbit" id="orbit">
 <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

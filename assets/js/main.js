@@ -79,3 +79,152 @@ document.querySelectorAll('.btn').forEach(btn => {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 })();
+
+/* ==========================================
+   WORLD CLOCK
+========================================== */
+
+(function(){
+
+const india = document.getElementById("indiaTime");
+const italy = document.getElementById("italyTime");
+
+if(!india || !italy) return;
+
+function updateClocks(){
+
+    india.textContent =
+    new Date().toLocaleTimeString("en-IN",{
+
+        timeZone:"Asia/Kolkata",
+
+        hour:"2-digit",
+
+        minute:"2-digit"
+
+    });
+
+    italy.textContent =
+    new Date().toLocaleTimeString("en-IT",{
+
+        timeZone:"Europe/Rome",
+
+        hour:"2-digit",
+
+        minute:"2-digit"
+
+    });
+
+}
+
+updateClocks();
+
+setInterval(updateClocks,1000);
+
+})();
+
+/* ==========================================
+   WORLD STATUS CLOSE
+========================================== */
+
+(() => {
+
+    const widget = document.querySelector(".world-status");
+    const close = document.getElementById("worldClose");
+
+    if(!widget || !close) return;
+
+    close.addEventListener("click", () => {
+
+        widget.style.opacity = "0";
+        widget.style.transform = "translateY(20px) scale(.9)";
+
+        setTimeout(() => {
+
+            widget.style.display = "none";
+
+        }, 300);
+
+    });
+
+    /* ==========================================================
+   CINEMATIC INTRO LOADER
+========================================================== */
+
+(() => {
+
+    const loader = document.getElementById("introLoader");
+    const status = document.getElementById("loaderStatus");
+    const bar = document.getElementById("loaderBar");
+
+    if(!loader || !status || !bar) return;
+
+    const steps = [
+
+        {
+            text:"Initializing Orbit AI...",
+            progress:15
+        },
+
+        {
+            text:"Loading Constellation...",
+            progress:35
+        },
+
+        {
+            text:"Preparing Projects...",
+            progress:55
+        },
+
+        {
+            text:"Connecting Italy Journey...",
+            progress:75
+        },
+
+        {
+            text:"Almost Ready...",
+            progress:92
+        },
+
+        {
+            text:"Welcome, Explorer.",
+            progress:100
+        }
+
+    ];
+
+    let i = 0;
+
+    function nextStep(){
+
+        status.textContent = steps[i].text;
+
+        bar.style.width = steps[i].progress + "%";
+
+        i++;
+
+        if(i < steps.length){
+
+            setTimeout(nextStep,700);
+
+        }else{
+
+            setTimeout(()=>{
+
+                loader.classList.add("hide");
+
+            },800);
+
+        }
+
+    }
+
+    window.addEventListener("load",()=>{
+
+        setTimeout(nextStep,500);
+
+    });
+
+})();
+
+})();
